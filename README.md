@@ -71,3 +71,4 @@
     * nos movemos a la carpeta 'storybook-static' y en ella ejecutamos el comando  
 
         http-server -o
+3. en .gitignore agrega la carpeta 'storybook-static', luego la renombra como docs, para que esta sea la que subamos a produccion y le hagamos seguimiento
