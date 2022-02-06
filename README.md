@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+# My storybook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    es una herramienta que sirve para probar nuestros componente, del mismo modo otros programadores pueden usarlo y al darle la aprobacion, entonces incorporamos nuestro componente al proyecto donde estemos trabajando.
+    esto es para Probar nuestros componentes, no para crearlos o algo asi.
 
-## Available Scripts
+    para levantar este proyecto se ejecuta el siguiente comando
 
-In the project directory, you can run:
+        npm start
 
-### `npm start`
+## para crear un proyecto como este se debe realizar los siguientes pasos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. creamos un nuevo proyecto de react 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    npx create-react-app my-storybook --template typescript
 
-### `npm test`
+2. debemos romper la aplicacion de react, para ello eliminamos un paquete de react
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    react-scripts
 
-### `npm run build`
+3. borramos los archivos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    * App.css (opcional borrar)
+    * App.test.tsx
+    * setupTests.ts (opcional borrar)
+    * reportWebVitals
+    * react-app-env.d.ts
+    * logo.svg
+    * index.css
+    * en pocas palabras, en la carpeta src, solo deja el archivo. index.tsx
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. instalamos ahora si, el plugin Storybook, ejecutamos el comando
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    npx sb init
 
-### `npm run eject`
+5. despues de realizar la instalacion, ademas de Storybook, nos instala algunos ejemplos de demostracion
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+6. gracias a la instalacion, podemos ejecutar el comando, ya nuestra aplicacion no es aplicacion si no componentes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+         npm run storybook
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+7.  antes de ejecutar el comando anterior, debemos abrir el archivo package.json y hacer los siguientes cambios en la seccion de scripts
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+        "scripts": {
+            "start": "start-storybook -p 6006",
+            "build": "build-storybook",
+            "storybook": "start-storybook -p 6006",
+            "build-storybook": "build-storybook"
+        },
 
-## Learn More
+8.  debemos borrar todo lo que tenemos en nuestro archivo index.tsx
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+9.  para ver una base podemos abrir el archivo index.tsx y en el colocar 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+        export { Button } from './stories/Button';
+
+10. ejecutamos el comando npm start para levantar el proeycto
+
+
+
+## pasar a produccion
+
+1. ejecutamos el comando
+
+        npm build
+        o
+        build-storybook
+
+2. para probar el archivo de p`roduccion localmente, podemos instalar
+
+    * npm i http-server
+    * nos movemos a la carpeta 'storybook-static' y en ella ejecutamos el comando  
+
+        http-server -o
