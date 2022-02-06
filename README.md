@@ -72,3 +72,8 @@
 
         http-server -o
 3. en .gitignore agrega la carpeta 'storybook-static', luego la renombra como docs, para que esta sea la que subamos a produccion y le hagamos seguimiento
+
+
+## bonus chromatic
+
+es una herramienta que permite al subir el codigo, en ejemplo git page, y de alli que podamos darle enlace a otras personas para que lo vean, al mismo tiempo esas personas podran comentar, sugerir cambios y si concideramos conveniente, los aprobamos
