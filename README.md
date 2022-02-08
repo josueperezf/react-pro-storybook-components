@@ -187,3 +187,24 @@ debemos instalar los siguientes plugins
     1. fix => Fijar liberación
     2. feat => Lanzamiento de nuevas funciones
     3. perf => Lanzamiento de última hora (tenga en cuenta que el BREAKING CHANGE: token debe estar en el pie de página de la confirmación)
+
+# github action
+
+1. debemos ir a donde esta la imagen de nuestro perfil de github, seleccionar donde dice settings
+2. seleccionar developer settings
+3. presionar donde dice: Personal access tokens
+4. presionar 'generate new token', <b>nota los token que generemos debemos guardarlos, por que al refrescar la pagina ya no sera visibles de nuevo, ademas se utilizaran en pasos posteriores</b>
+5. "en note" colocamos el nombre que le quereamos dar al token para nosotros identificarlo
+6. seleccionamos el checkbox que dice repo, y presionamos donde dice generar token
+7. vamos a nuestro donde vamos a publicar nuestro proyecto, para este caso en npm, alli presionamos en la esquina superior derecha, donde esta nuestra foto, alli seleccionamos 'access tokens o fichas de acceso' segun el idioma; 
+    * presionamos generar nuevo token 'esto es en la pagina de npm ya que alli es donde lo estamos publicando'
+    * le damos un  nombre y seleccionamos solo la opcion que dice <b>public</b> <h3>debemos guardar el token, ya que se utilziara en pasos posteriores y si se refresca la pagina se pierde</h3>
+7. ahora vamos a nuestro repositorio en github, seleccionamos nuestro repositorio, vamos a settings
+8. presionamos donde dice <b>secret</b> , despues donde dice <b> Actions</b>
+9. presionamos donde dice <b> new repository secret</b>, Para este ejemplo se le coloco <b> GH_TOKEN</b>, en value pegamos el token que nos genero en el paso
+
+10. ahora vamos a repetir el paso 9, pero con el token que nos dio nuestro servidor, donde subiremos nuestro proyecto, para este caso es npm. el nombre seria <b>NPM_TOKEN</b>, y la clave las que nos genero nuestro en el paso 7
+
+11. despues de hacer los pasos anteriores y sin salir de nuestro repositorio, vamos a donde dice <b> acions </b>, despues donde dice <b> new workflows</b>
+12.  luego seleccionamos en el enlace <b>set up a workflow yourself </b> y sin hacer cambios en esa patalla, damos click en <b> start commit </b>, colocamos cualquier texto en el commit y presionamos en <b> commit new file </b>
+13. 
