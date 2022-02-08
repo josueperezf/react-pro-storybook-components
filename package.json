@@ -1,7 +1,28 @@
 {
-  "name": "my-storybook",
+  "name": "jp-react-pro-storybook-components",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/josueperezf/",
+  "repository": {
+    "url": "https://github.com/josueperezf/react-pro-storybook-components",
+    "type": "git"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "typescript": ">4.0.0"
+  },
+  "release": {
+    "branch": [
+      "master"
+    ]
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
@@ -10,17 +31,17 @@
     "@types/node": "^16.11.22",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
-    "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "typescript": "^4.5.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build": "build-storybook",
+    "build": "npm run clean && tsc && npm run copy-files",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=33a3d6515754"
+    "chromatic": "npx chromatic --project-token=33a3d6515754",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +68,17 @@
     "@storybook/addon-links": "^6.4.18",
     "@storybook/react": "^6.4.18",
     "babel-loader": "^8.2.3",
-    "chromatic": "^6.4.3"
-  }
+    "chromatic": "^6.4.3",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^19.0.2"
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
 }
