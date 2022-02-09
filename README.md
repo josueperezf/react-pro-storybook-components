@@ -235,4 +235,3 @@ debemos instalar los siguientes plugins
                     NPM_TOKEN: ${{secrets.NPM_TOKEN}}
                     run: npx semantic-release
 
-18. 
