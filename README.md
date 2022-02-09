@@ -235,3 +235,14 @@ debemos instalar los siguientes plugins
                     NPM_TOKEN: ${{secrets.NPM_TOKEN}}
                     run: npx semantic-release
 
+## instalacion de este paquete
+
+este sirve para practicar react components +storybook + npm publish
+
+```
+    npm install jp-react-pro-storybook-components
+```
+
+## Demo:
+
+[storybook-components](https://josueperezf.github.io/react-pro-storybook-components/?path=/story/ui-my-label--basic)
