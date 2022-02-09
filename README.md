@@ -207,4 +207,32 @@ debemos instalar los siguientes plugins
 
 11. despues de hacer los pasos anteriores y sin salir de nuestro repositorio, vamos a donde dice <b> acions </b>, despues donde dice <b> new workflows</b>
 12.  luego seleccionamos en el enlace <b>set up a workflow yourself </b> y sin hacer cambios en esa patalla, damos click en <b> start commit </b>, colocamos cualquier texto en el commit y presionamos en <b> commit new file </b>
-13. 
+13. hacemos un git pull para traernos todos los cambios
+14. abrimos en nuestro editor, el archivo llamado <b> main.yml </b>, este es el que tendra toda la configuracion que indica que cuando subamos cambios a ciertas ramas, debe pasar automaticamente a produccion y cosas asi.
+15. en ese archivo, como esta actualmente, dice que cuando hagamos un push o un pull_request a la rama master, se ejecutara este procedimiento, 'el que nosotros indiquemos en el documento'
+16. borramos lo siguiente de ese documento, tanto la linea de comentario, ya que este archivo es muy delicado
+
+          # Allows you to run this workflow manually from the Actions tab
+            workflow_dispatch:
+17. EL step de ese proyecto lo deja de esta manera, algo similar docker, donde un archivo decia que instalar, que variables de entorno usar y demas, la sangria es muy importante, un error en ella puede que ya no funcione
+
+            steps:
+                - uses: actions/checkout@v2
+                - name: Setup Node.js
+                    uses: actions/setup-node@v1
+                    with:
+                    node-version: 14.17
+
+                - name: Install Dependencies
+                    run: npm install
+                
+                - name: Build App
+                    run: npm run build
+                
+                - name: Semantic Release
+                    env:
+                    GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
+                    NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+                    run: npx semantic-release
+
+18. 
